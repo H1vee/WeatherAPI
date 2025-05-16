@@ -42,7 +42,6 @@ func ConnectDB(dbURL string) (*gorm.DB, error) {
 		return nil, fmt.Errorf("failed to connect to db: %w", err)
 	}
 
-	// Optionally, ping database to verify connection
 	sqlDB, err := db.DB()
 	if err != nil {
 		return nil, fmt.Errorf("failed to get sql.DB from gorm: %w", err)
