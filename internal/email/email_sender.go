@@ -1,3 +1,4 @@
+// internal/email/email_sender.go
 package email
 
 import (
@@ -20,7 +21,7 @@ type EmailSender struct {
 	config Config
 }
 
-func NewEmailSender(config Config) *EmailSender {
+func NewEmailSender(config Config) services.EmailSender {
 	return &EmailSender{
 		config: config,
 	}
