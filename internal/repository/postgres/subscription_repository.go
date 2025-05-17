@@ -32,6 +32,14 @@ func (r *subscriptionRepository) UpdateConfirmation(token string, confirmed bool
 	return r.db.Model(&models.Subscription{}).Where("token=?", token).Update("confirmed", confirmed).Error
 }
 
+func (r *subscriptionRepository) FindAllConfirmed() ([]models.Subscription, error) {
+	var subscriptions []models.Subscription
+	if err := r.db.Where("confirmed = ?", true).Find(&subscriptions).Error; err != nil {
+		return nil, err
+	}
+	return subscriptions, nil
+}
+
 func (r *subscriptionRepository) Delete(token string) error {
 	return r.db.Where("token =?", token).Delete(&models.Subscription{}).Error
 }

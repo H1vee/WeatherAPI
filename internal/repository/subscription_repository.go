@@ -8,5 +8,6 @@ type SubscriptionRepository interface {
 	Create(subscription models.Subscription) error
 	FindByToken(token string) (*models.Subscription, error)
 	UpdateConfirmation(token string, confirmed bool) error
+	FindAllConfirmed() ([]models.Subscription, error)
 	Delete(token string) error
 }
