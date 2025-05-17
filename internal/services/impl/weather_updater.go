@@ -59,11 +59,11 @@ func (u *WeatherUpdater) Start() {
 			select {
 			case <-u.hourlyTicker.C:
 				if err := u.sendUpdates("hourly"); err != nil {
-					log.Printf("Error sending hourly updates: %w", err)
+					log.Printf("Error sending hourly updates: %v", err)
 				}
 			case <-u.dailyTicker.C:
 				if err := u.sendUpdates("daily"); err != nil {
-					log.Printf("Error sending daily updates: %w", err)
+					log.Printf("Error sending daily updates: %v", err)
 				}
 			case <-u.stopChan:
 				u.hourlyTicker.Stop()

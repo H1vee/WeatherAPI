@@ -27,7 +27,7 @@ func NewSubscriptionService(repo repository.SubscriptionRepository, emailSender 
 func generateToken() (string, error) {
 	bytes := make([]byte, 16)
 	if _, err := rand.Read(bytes); err != nil {
-		return "", nil
+		return "", err
 	}
 	return hex.EncodeToString(bytes), nil
 }
@@ -35,7 +35,7 @@ func generateToken() (string, error) {
 func (s *subscriptionService) Subscribe(subscription models.Subscription) error {
 	token, err := generateToken()
 	if err != nil {
-		fmt.Errorf("failed to generate token: %w", err)
+		return fmt.Errorf("failed to generate token: %w", err)
 	}
 
 	subscription.Token = token

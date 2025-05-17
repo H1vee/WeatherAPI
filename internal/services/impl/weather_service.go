@@ -52,10 +52,15 @@ func (s *weatherService) GetCurrentWeather(city string) (*services.WeatherData, 
 	requestURL.RawQuery = query.Encode()
 
 	resp, err := s.httpClient.Get(requestURL.String())
+
 	if err != nil {
+		return nil, fmt.Errorf("failed to make request to weather API: %w", err)
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode != http.StatusOK {
 		return nil, fmt.Errorf("weather API returned non-OK status: %d", resp.StatusCode)
 	}
-
 	var apiResp weatherAPIResponse
 	if err := json.NewDecoder(resp.Body).Decode(&apiResp); err != nil {
 		return nil, fmt.Errorf("failed to decode weather API response: %w", err)
