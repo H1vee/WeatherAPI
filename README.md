@@ -4,14 +4,14 @@ A robust weather subscription service built with Go that allows users to subscri
 
 ## Features
 
-- 🌤️ **Real-time Weather Data**: Get current weather information for any city
-- 📧 **Email Subscriptions**: Subscribe to weather updates via email
-- ⏰ **Flexible Frequency**: Choose between hourly or daily notifications  
-- ✅ **Email Confirmation**: Double opt-in subscription process
-- 🔐 **Secure Unsubscribe**: Easy one-click unsubscribe functionality
-- 🐳 **Docker Support**: Full containerization with Docker Compose
-- 🗄️ **PostgreSQL Database**: Reliable data persistence
-- 🧪 **Comprehensive Testing**: Unit and integration tests included
+-  **Real-time Weather Data**: Get current weather information for any city
+-  **Email Subscriptions**: Subscribe to weather updates via email
+-  **Flexible Frequency**: Choose between hourly or daily notifications  
+-  **Email Confirmation**: Double opt-in subscription process
+-  **Secure Unsubscribe**: Easy one-click unsubscribe functionality
+-  **Docker Support**: Full containerization with Docker Compose
+-  **PostgreSQL Database**: Reliable data persistence
+-  **Comprehensive Testing**: Unit and integration tests included
 
 ## Tech Stack
 
