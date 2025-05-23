@@ -25,7 +25,7 @@ func (cv *CustomValidator) Validate(i interface{}) error {
 
 func main() {
 	// Load configuration
-	cfg := config.Load("config.yaml")
+	cfg := config.Load("cmd/config/config.yaml")
 
 	// Database connection
 	database, err := db.ConnectDB(cfg.Database.URL)
